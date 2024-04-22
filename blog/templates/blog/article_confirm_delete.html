@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="container card col-6 d-flex justify-content-center mb-3">
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>
+          Вы действительно хотите удалить статью <b>"{{ article.title }}"</b> ?
+        </p>
+        <div class=" d-flex justify-content-center mt-3 mb-3">
+            <input type="submit" value="Да, удалить" class="btn btn-danger mx-3">
+            <a href="{{ article.get_absolute_url }}" class="btn btn-outline-dark">Назад</a>
+        </div>
+    </form>
+</div>
+
+{% endblock main %}

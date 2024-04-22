@@ -1,0 +1,17 @@
+<div class="col mb-2">
+    <div class="card mx-4">
+        <div class="card-header d-flex justify-content-between">
+            <small class="text-muted">Категория: <b>{{ article.category }}</b></small>
+            <small class="text-muted">Просмотры: <b>{{ article.views }}</b></small>
+        </div>
+        <img height="250" src="{{ article.get_photo }}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ article.title }}</h5>
+            <p class="card-text">{{ article.content|truncatechars:122 }}</p>
+            <a href="{% url 'article' article.pk %}" class="btn btn-success text-dark">Перейти к статье</a>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Дата создания: {{ article.created_at }}</small>
+        </div>
+    </div>
+</div>

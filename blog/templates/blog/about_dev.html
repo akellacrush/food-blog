@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'blog/css/about_dev.css' %}">
+{% endblock style %}
+
+{% block main %}
+<div class="card-container">
+    <span class="pro">PRO</span>
+    <img
+        width="150"
+        class="round"
+        src="{% static 'blog/img/developer.png' %}"
+        alt="user"
+    />
+    <h3 style="color: #000000;">Farrukh Shavkatov</h3>
+    <h6 style="color: #000000;">Tashkent</h6>
+    <p style="color: #000000;">
+        Back End Developer
+    </p>
+    <div class="buttons">
+        <button class="primary">
+            <a style="color: #000000;" href="https://t.me/farrukh_shavkatov">Написать</a>
+        </button>
+        <p style="color: #000000;">
+            Контакт: +998 90 994 65 55
+        </p>
+    </div>
+    <div class="skills">
+        <h6>Навыки</h6>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Bootstrap</li>
+            <li>Python</li>
+            <li>Django</li>
+            <li>PyTelegramBotApi</li>
+            <li>bs4</li>
+            <li>SQL</li>
+            <li>PostgresSQL</li>
+            <li>SQLite3</li>
+        </ul>
+    </div>
+</div>
+{% endblock main %}
+
+{% block script %}
+
+{% endblock script %}
+

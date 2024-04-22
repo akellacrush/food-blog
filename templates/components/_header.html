@@ -1,0 +1,49 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg bg-success">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">
+            <img width="70" src="{% static 'blog/img/logotip.png' %}" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Переключатель навигации">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about_dev' %}"><b>О разработчике</b></a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li>
+                    <form class="d-flex" role="search" method="get" action="{% url 'search' %}">
+                        <input name="q" class="form-control me-2" type="search" placeholder="🔍Поиск"
+                               aria-label="🔍Поиск">
+                        <button class="btn btn-outline-dark" type="submit">
+                            <b>Поиск</b>
+                        </button>
+                    </form>
+                </li>
+                {% if not request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'user_login' %}"><b>Войти</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'user_register' %}"><b>Регистрация</b></a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <p class="nav-link"><b>Привет {{ request.user.username }} !</b></p>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'add' %}"><b>Добавить статью</b></a>
+                    </li><li class="nav-item">
+                        <a class="nav-link" href="{% url 'user_logout' %}"><b>Выход</b></a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

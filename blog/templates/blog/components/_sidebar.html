@@ -1,0 +1,12 @@
+{% load blog_tags %}
+<div class="list-group">
+    <a href="{% url 'index' %}" class="list-group-item list-group-item-action bg-dark text-success">
+        Все категории
+    </a>
+    {% get_categories as categories %}
+    {% for category in categories %}
+    <a href="{% url 'category' category.pk %}" class="list-group-item list-group-item-action ">
+        {{ category.title }}
+    </a>
+    {% endfor %}
+</div>
